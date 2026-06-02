@@ -1066,8 +1066,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4720302640007677897}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.067754045, y: 0, z: 0, w: 0.99770206}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalRotation: {x: -0.06787194, y: 0.0104270615, z: -0.0007115088, w: 0.9976393}
+  m_LocalPosition: {x: 0.943, y: 1.079, z: 0.576}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1075,7 +1075,7 @@ Transform:
   - {fileID: 5945777960311573598}
   - {fileID: 7752087831788669682}
   m_Father: {fileID: 3664189956905725845}
-  m_LocalEulerAnglesHint: {x: -7.77, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -7.782, y: 1.209, z: -0.164}
 --- !u!1 &5078954273400952632
 GameObject:
   m_ObjectHideFlags: 0
@@ -1101,7 +1101,7 @@ Transform:
   m_GameObject: {fileID: 5078954273400952632}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.502, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1141,7 +1141,7 @@ Transform:
   m_GameObject: {fileID: 5483391636240902376}
   serializedVersion: 2
   m_LocalRotation: {x: 0.06796421, y: -0.009274833, z: -0.0052127964, w: 0.9976311}
-  m_LocalPosition: {x: -1.56224, y: 1.14036, z: -1.16518}
+  m_LocalPosition: {x: -2.033, y: 1.356, z: -2.435}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1232,7 +1232,7 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 1, y: 0.3, z: 1.7}
+  m_Center: {x: 1, y: 0.3, z: 1}
 --- !u!114 &292017267307935206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1354,7 +1354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VRJump
   jumpAction: {fileID: 0}
-  groundCheck: {fileID: 0}
+  groundCheck: {fileID: 5470177302610210616}
   groundMask:
     serializedVersion: 2
     m_Bits: 0
@@ -2243,7 +2243,7 @@ MonoBehaviour:
       m_Name: Pinch Animation
       m_Type: 0
       m_ExpectedControlType: 
-      m_Id: 695b8adc-098f-46dc-86ec-02becf5467d6
+      m_Id: bc09ebb3-4072-429b-8d9a-7f7f5b6c367a
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
@@ -2255,7 +2255,7 @@ MonoBehaviour:
       m_Name: Grip Animation
       m_Type: 0
       m_ExpectedControlType: 
-      m_Id: 2e046155-bcc3-457a-85ce-ea37f383757a
+      m_Id: 9c0edcca-16a9-42ac-847b-c11de69fb752
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
