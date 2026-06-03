@@ -19403,8 +19403,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SFXManager
   musicSource: {fileID: 1962623717}
   globalSFXSource: {fileID: 1962623716}
-  correctSound: {fileID: 0}
-  puzzleSolvedSound: {fileID: 0}
+  correctSound: {fileID: 8300000, guid: 6219952f4d563734b8c7bf9de4373dc9, type: 3}
+  puzzleSolvedSound: {fileID: 8300000, guid: affa932d101d3064cad1e206738a6b5c, type: 3}
 --- !u!4 &1962623719
 Transform:
   m_ObjectHideFlags: 0
