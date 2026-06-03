@@ -74,6 +74,10 @@ public class LeverPuzzle : MonoBehaviour
     {
         solved = true;
         if (SFXManager.instance != null) SFXManager.instance.PlayGlobalSFX(sfxBien);
+        // --- NUEVO: Avanzamos al paso 3 ---
+        if (ObjectiveManager.instance != null)
+            ObjectiveManager.instance.AdvanceStep(2, "OBJETIVO 4:\nCandados liberados.\n¡CORRE DE AQUÍ!");
+        // ----------------------------------
 
         foreach (Light l in lights) l.color = Color.green;
 

@@ -2239,8 +2239,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278255394
+  m_fontColor: {r: 0.13329339, g: 1, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2257,8 +2257,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 131.1
-  m_fontSizeBase: 131.1
+  m_fontSize: 141.2
+  m_fontSizeBase: 141.2
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4101,6 +4101,53 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 437cc8264db24f54a94ec626d0d6dca4, type: 3}
+--- !u!1 &412244950
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 412244952}
+  - component: {fileID: 412244951}
+  m_Layer: 0
+  m_Name: Reglas_CONTROLLER
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &412244951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412244950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8e68f9c8fc370e41a1650919ce4f4f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectiveManager
+  objectiveText: {fileID: 282079255}
+  newObjectiveSFX: {fileID: 8300000, guid: a1cbc3b0a6bde5743ae45e07b63e617c, type: 3}
+  currentStep: 0
+--- !u!4 &412244952
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412244950}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.47173, y: 2.16156, z: 11.28381}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &418484625
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10244,7 +10291,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Recuerda, la celda de enfriamiento se est\xE1 cargando"
+  m_text: Mismo color, misma funcionalidad.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -10744,17 +10791,18 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1049792894}
   m_LocalRotation: {x: -0.0026368469, y: -0.054648824, z: -0.01570011, w: 0.9983787}
-  m_LocalPosition: {x: 0, y: 0, z: 11.04}
+  m_LocalPosition: {x: 0, y: 0, z: 11.01}
   m_LocalScale: {x: 0.001, y: 0.001, z: 0.005}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 282079254}
+  - {fileID: 1147782846}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -0.4, y: -6.26, z: -1.78}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -2.475, y: 2.75}
-  m_SizeDelta: {x: 2183.1, y: 741.1}
+  m_AnchoredPosition: {x: -2.77, y: 2.36}
+  m_SizeDelta: {x: 2474.9028, y: 1537.1613}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1053245365
 GameObject:
@@ -11965,6 +12013,81 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 895bdfd2e0ea9264e9e5279ae5517a88, type: 3}
+--- !u!1 &1147782845
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1147782846}
+  - component: {fileID: 1147782848}
+  - component: {fileID: 1147782847}
+  m_Layer: 5
+  m_Name: Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1147782846
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147782845}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1049792898}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -36.900024, y: 8.599976}
+  m_SizeDelta: {x: -333.9, y: -169.5}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1147782847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147782845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1147782848
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147782845}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1159508998
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20751,6 +20874,7 @@ SceneRoots:
   - {fileID: 1449105069}
   - {fileID: 1049792898}
   - {fileID: 726823173}
+  - {fileID: 412244952}
   - {fileID: 832575519}
   - {fileID: 418484625}
   - {fileID: 107867663}
