@@ -8,15 +8,24 @@ public class CoolingSystem : MonoBehaviour
     
     [Header("Puerta")]
     public GameObject door;
-    public Vector3 openPosition;      // posición destino de la puerta abierta
+    public float doorOpenDistance = 2f; // cuántos metros sube
     public float doorSpeed = 2f;
+
+    private Vector3 openPosition;
+    private bool moveDoor = false;
+
+
 
     [Header("Eventos")]
     public UnityEvent onCoolingComplete;
 
     private bool cooled = false;
-    private bool moveDoor = false;
-
+    void Start()
+    {
+        // Calcula destino relativo a su posición actual
+        if (door != null)
+            openPosition = door.transform.position + Vector3.up * doorOpenDistance;
+    }
     public void OnCoolingCellInserted()
     {
         if (cooled) return;
