@@ -4,7 +4,7 @@ using UnityEngine.Events;
 public class LeverTrigger : MonoBehaviour
 {
     private HingeJoint hinge;
-    public float targetAngle = 40f; 
+    public float targetAngle = -40f; 
     public UnityEvent onLeverPulled;
     private bool hasBeenPulled = false;
 
