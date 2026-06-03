@@ -6,9 +6,15 @@ public class SFXManager : MonoBehaviour
 
     [Header("Canales de Audio")]
     [Tooltip("AudioSource para música de fondo (cancion.mp3)")]
-    public AudioSource musicSource; 
+    public AudioSource musicSource;
     [Tooltip("AudioSource para voces globales (bien, malhecho, peligro, alivio)")]
     public AudioSource globalSFXSource;
+
+    [Header("FusePuzzle SFX")]
+    [Tooltip("Sonido al colocar un fusible correctamente")]
+    public AudioClip correctSound;
+    [Tooltip("Sonido al completar el puzzle de fusibles")]
+    public AudioClip puzzleSolvedSound;
 
     void Awake()
     {
@@ -29,5 +35,15 @@ public class SFXManager : MonoBehaviour
     {
         if (clip != null)
             AudioSource.PlayClipAtPoint(clip, position);
+    }
+
+    public void PlayCorrectSound()
+    {
+        PlayGlobalSFX(correctSound);
+    }
+
+    public void PlayPuzzleSolvedSound()
+    {
+        PlayGlobalSFX(puzzleSolvedSound);
     }
 }
