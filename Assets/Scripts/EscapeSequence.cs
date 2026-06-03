@@ -34,6 +34,9 @@ public class CoolingSystem : MonoBehaviour
         if (SFXManager.instance != null) 
             SFXManager.instance.PlayGlobalSFX(sfxAlivio);
 
+        if (ObjectiveManager.instance != null)
+            ObjectiveManager.instance.AdvanceStep(1, "OBJETIVO 3:\nReactor estable. Libera los candados magnéticos jalando las 3 palancas en el orden correcto.");
+
         // Cambiar lámparas a blanco
         foreach (Light l in lights)
         {
