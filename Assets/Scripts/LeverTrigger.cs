@@ -3,13 +3,17 @@ using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 [RequireComponent(typeof(HingeJoint))]
+[RequireComponent(typeof(Rigidbody))]
 public class LeverController : MonoBehaviour
 {
     [Header("Configuración")]
-    [Tooltip("Ángulo que se considera 'abajo' (palanca bajada)")]
     public float downAngle = -40f;
 
-    [Header("Eventos")]
+    [Header("Puzzle")]
+    public LeverPuzzle puzzle;
+    public int leverIndex;
+
+    [Header("Fallback (si no hay puzzle asignado)")]
     public UnityEvent onLeverPulledDown;
 
     private HingeJoint hinge;
@@ -24,26 +28,22 @@ public class LeverController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         grab = GetComponent<XRGrabInteractable>();
 
-        // Forzar posición inicial: arriba
         ForceUpPosition();
 
-        // Escuchar cuando el jugador agarra/suelta
         grab.selectEntered.AddListener(_ => isBeingHeld = true);
         grab.selectExited.AddListener(_ => OnReleased());
     }
 
     void ForceUpPosition()
     {
-        // Bloquear físicas temporalmente y forzar rotación "arriba"
         rb.isKinematic = true;
-        transform.localRotation = Quaternion.identity; // ajusta si tu "arriba" es otra rotación
+        transform.localRotation = Quaternion.identity;
         rb.isKinematic = false;
 
-        // Usar spring del hinge para mantenerla arriba si nadie la toca
         JointSpring spring = hinge.spring;
         spring.spring = 50f;
         spring.damper = 5f;
-        spring.targetPosition = 0f; // 0 = posición inicial (arriba)
+        spring.targetPosition = 0f;
         hinge.spring = spring;
         hinge.useSpring = true;
     }
@@ -53,31 +53,38 @@ public class LeverController : MonoBehaviour
         isBeingHeld = false;
 
         if (!triggered)
-        {
-            // Si no ha sido activada aún, el spring la regresa arriba
-            hinge.useSpring = true;
-        }
+            hinge.useSpring = true; // regresa arriba
         else
-        {
-            // Ya fue bajada: desactivar spring para que se quede abajo
-            hinge.useSpring = false;
-        }
+            hinge.useSpring = false; // se queda abajo
     }
 
     void Update()
     {
         if (triggered) return;
 
-        // Mientras la sostiene, desactivar spring para que pueda moverla
         if (isBeingHeld)
             hinge.useSpring = false;
 
         if (isBeingHeld && hinge.angle <= downAngle)
         {
             triggered = true;
-            hinge.useSpring = false; // se queda abajo para siempre
-            Debug.Log("Palanca bajada. Activando sistema...");
-            onLeverPulledDown.Invoke();
+            hinge.useSpring = false;
+            NotifyPuzzle();
         }
+    }
+
+    void NotifyPuzzle()
+    {
+        if (puzzle != null)
+            puzzle.RegisterLever(leverIndex);
+        else
+            onLeverPulledDown.Invoke();
+    }
+
+    public void ResetLever()
+    {
+        triggered = false;
+        hinge.useSpring = true;
+        // el spring regresa la palanca arriba automáticamente
     }
 }
