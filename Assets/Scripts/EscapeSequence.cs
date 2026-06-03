@@ -14,7 +14,8 @@ public class CoolingSystem : MonoBehaviour
     private Vector3 openPosition;
     private bool moveDoor = false;
 
-
+    [Header("Audio")]
+    public AudioClip sfxAlivio;
 
     [Header("Eventos")]
     public UnityEvent onCoolingComplete;
@@ -30,6 +31,8 @@ public class CoolingSystem : MonoBehaviour
     {
         if (cooled) return;
         cooled = true;
+        if (SFXManager.instance != null) 
+            SFXManager.instance.PlayGlobalSFX(sfxAlivio);
 
         // Cambiar lámparas a blanco
         foreach (Light l in lights)

@@ -29,6 +29,9 @@ public class LeverPuzzle : MonoBehaviour
 
     private Vector3 doorLeftOpen;
     private Vector3 doorRightOpen;
+    [Header("Audios")]
+    public AudioClip sfxBien;
+    public AudioClip sfxMalHecho;
 
     void Start()
     {
@@ -56,6 +59,7 @@ public class LeverPuzzle : MonoBehaviour
     IEnumerator HandleError()
     {
         locked = true;
+        if (SFXManager.instance != null) SFXManager.instance.PlayGlobalSFX(sfxMalHecho);
         yield return new WaitForSeconds(0.5f); // pequeña pausa antes de resetear
 
         // Levantar todas las palancas que bajaron
@@ -69,6 +73,7 @@ public class LeverPuzzle : MonoBehaviour
     IEnumerator HandleSuccess()
     {
         solved = true;
+        if (SFXManager.instance != null) SFXManager.instance.PlayGlobalSFX(sfxBien);
 
         foreach (Light l in lights) l.color = Color.green;
 

@@ -21,6 +21,8 @@ public class LeverController : MonoBehaviour
     private XRGrabInteractable grab;
     private bool triggered = false;
     private bool isBeingHeld = false;
+    [Header("Audio")]
+    public AudioClip sfxPalanca;
 
     void Start()
     {
@@ -69,6 +71,8 @@ public class LeverController : MonoBehaviour
         {
             triggered = true;
             hinge.useSpring = false;
+            if (SFXManager.instance != null)
+                SFXManager.instance.PlaySpatialSFX(sfxPalanca, transform.position);
             NotifyPuzzle();
         }
     }
