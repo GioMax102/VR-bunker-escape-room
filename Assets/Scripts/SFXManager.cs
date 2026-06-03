@@ -1,26 +1,33 @@
 using UnityEngine;
 
-// Va en un GameObject con un AudioSource. Si no existe en la escena, el puzzle
-// igual funciona: simplemente no suena nada.
-[RequireComponent(typeof(AudioSource))]
 public class SFXManager : MonoBehaviour
 {
-    [SerializeField] private AudioClip correctSound;        // al colocar un fusible correcto
-    [SerializeField] private AudioClip puzzleSolvedSound;   // al completar el puzzle
+    public static SFXManager instance;
 
-    private AudioSource audioSource;
+    [Header("Canales de Audio")]
+    [Tooltip("AudioSource para música de fondo (cancion.mp3)")]
+    public AudioSource musicSource; 
+    [Tooltip("AudioSource para voces globales (bien, malhecho, peligro, alivio)")]
+    public AudioSource globalSFXSource;
 
-    private void Awake()
+    void Awake()
     {
-        audioSource = GetComponent<AudioSource>();
+        // Configuración del Singleton
+        if (instance == null) instance = this;
+        else Destroy(gameObject);
     }
 
-    public void PlayCorrectSound() => Play(correctSound);
-
-    public void PlayPuzzleSolvedSound() => Play(puzzleSolvedSound);
-
-    private void Play(AudioClip clip)
+    // Llama esto para voces, alarmas o retroalimentación UI (Audio 2D)
+    public void PlayGlobalSFX(AudioClip clip)
     {
-        if (clip != null) audioSource.PlayOneShot(clip);
+        if (clip != null)
+            globalSFXSource.PlayOneShot(clip);
+    }
+
+    // Llama esto para sonidos mecánicos en VR (Audio 3D optimizado)
+    public void PlaySpatialSFX(AudioClip clip, Vector3 position)
+    {
+        if (clip != null)
+            AudioSource.PlayClipAtPoint(clip, position);
     }
 }

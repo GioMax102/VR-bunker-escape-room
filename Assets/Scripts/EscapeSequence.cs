@@ -1,42 +1,63 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class EscapeSequence : MonoBehaviour
+public class CoolingSystem : MonoBehaviour
 {
-    [Header("Estado del Búnker")]
-    public bool hasPower = false;
-    public bool isCooled = false;
+    [Header("Lámparas")]
+    public Light[] lights;
+    
+    [Header("Puerta")]
+    public GameObject door;
+    public float doorOpenDistance = 2f; // cuántos metros sube
+    public float doorSpeed = 2f;
 
-    [Header("Eventos de la Puerta")]
-    public UnityEvent onEscapeSuccessful; // Abre la puerta
-    public UnityEvent onDoorLockedError;  // Sonido de error
+    private Vector3 openPosition;
+    private bool moveDoor = false;
 
-    // Llama a esto desde el HingeJoint de la palanca
-    public void RestorePower()
+    [Header("Audio")]
+    public AudioClip sfxAlivio;
+
+    [Header("Eventos")]
+    public UnityEvent onCoolingComplete;
+
+    private bool cooled = false;
+    void Start()
     {
-        hasPower = true;
-        Debug.Log("Energía restaurada. Falta enfriamiento.");
+        // Calcula destino relativo a su posición actual
+        if (door != null)
+            openPosition = door.transform.position + Vector3.up * doorOpenDistance;
     }
-
-    // Llama a esto desde el XR Socket Interactor del Reactor
-    public void InsertCoolingCell()
+    public void OnCoolingCellInserted()
     {
-        isCooled = true;
-        Debug.Log("Reactor estabilizado.");
-    }
+        if (cooled) return;
+        cooled = true;
+        if (SFXManager.instance != null) 
+            SFXManager.instance.PlayGlobalSFX(sfxAlivio);
 
-    // Llama a esto cuando el jugador intente agarrar la manija de la puerta principal
-    public void TryOpenMainDoor()
-    {
-        if (hasPower && isCooled)
+        // Cambiar lámparas a blanco
+        foreach (Light l in lights)
         {
-            Debug.Log("¡Secuencia completada! Abriendo puerta...");
-            onEscapeSuccessful.Invoke();
+            l.color = Color.white;
         }
-        else
+
+        // Iniciar movimiento de puerta
+        moveDoor = true;
+
+        onCoolingComplete.Invoke();
+    }
+
+    void Update()
+    {
+        if (moveDoor && door != null)
         {
-            Debug.Log("Acceso denegado. Faltan sistemas por activar.");
-            onDoorLockedError.Invoke();
+            door.transform.position = Vector3.MoveTowards(
+                door.transform.position,
+                openPosition,
+                doorSpeed * Time.deltaTime
+            );
+
+            if (Vector3.Distance(door.transform.position, openPosition) < 0.01f)
+                moveDoor = false;
         }
     }
 }
