@@ -67,6 +67,6 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "VR-bunker-escape-room.slnx",
+    "dotnet.defaultSolution": "VR_Giovanni.slnx",
     "dotnet.enableWorkspaceBasedDevelopment": false
 }
